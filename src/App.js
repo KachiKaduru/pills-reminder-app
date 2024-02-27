@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import SearchBar from "./components/SearchBar";
+import Hero from "./components/Hero";
+import PlansList from "./components/PlansList";
+import NavBar from "./components/NavBar";
+import AddPlan from "./components/AddPlan";
+import { useState } from "react";
 
-function App() {
+export default function App() {
+  const [visible, setVisible] = useState(false);
+  const [pillsList, setPillsList] = useState([]);
+
+  function handleShowPlan() {
+    setVisible(!visible);
+  }
+
+  function handleAddPill(pill) {
+    setPillsList((pillsList) => [...pillsList, pill]);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <section className="body">
+      <NavBar onShowPlan={handleShowPlan} />
+      <div className="container">
+        <SearchBar />
+        <Hero />
+        <PlansList pillsList={pillsList} />
+      </div>
+      <AddPlan
+        visible={visible}
+        onShowPlan={handleShowPlan}
+        onAddPill={handleAddPill}
+        pillsList={pillsList}
+      />
+    </section>
   );
 }
-
-export default App;

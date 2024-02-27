@@ -1,0 +1,378 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.6rem;
+}
+
+.body {
+  max-width: 43rem;
+  margin: auto;
+  position: relative;
+  height: 100%;
+}
+
+.container {
+  max-width: 43rem;
+  margin: auto;
+  height: 100vh;
+  padding: 2.8rem;
+  border: 1px solid green;
+  position: relative;
+}
+
+.search-bar {
+  margin: 2.4rem 0 3.6rem;
+  width: 100%;
+  background: #f8f8f6;
+  color: #9b9b9b;
+  padding: 1.4rem 2rem;
+  border-radius: 1.4rem;
+  display: flex;
+  gap: 1.5rem;
+
+  img {
+    display: block;
+    width: 2rem;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  input {
+    background: #f8f8f6;
+    font-weight: 500;
+  }
+}
+
+.hero {
+  margin: 0 0 2rem 0;
+
+  .greeting {
+    font-size: 2.8rem;
+    line-height: 3.8rem;
+    width: 50%;
+    margin: 0 0 1.6rem 0;
+  }
+
+  .board {
+    background: #f3f6c8;
+    border-radius: 2.8rem;
+    padding: 2.4rem;
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+
+    .left {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      h5 {
+        font-weight: 600;
+        font-size: 1.8rem;
+        line-height: 2.4rem;
+      }
+
+      p {
+        font-size: 1.1rem;
+        line-height: 2.4rem;
+        color: #9b9b9b;
+      }
+
+      button {
+        font-size: 1.3rem;
+        font-weight: 600;
+        line-height: 2.4rem;
+        background: none;
+        border-bottom: 2px solid #ec7669;
+        color: #ec7669;
+        width: fit-content;
+      }
+    }
+
+    .right {
+      .right-con {
+        width: 100%;
+        height: 13.2rem;
+        position: relative;
+      }
+      img {
+        // width: 100%;
+        position: absolute;
+        bottom: 0;
+      }
+    }
+  }
+}
+
+.plans-list {
+  h4 {
+    font-weight: 500;
+    font-size: 1.7rem;
+    line-height: 3.8rem;
+    margin: 0 0 1.2rem 0;
+  }
+
+  .lists {
+    // height: calc(100vh - 51rem);
+    display: grid;
+    gap: 1.2rem;
+    // padding: 0 0 16rem 0;
+
+    .drug-item {
+      padding: 1.4rem 2.8rem;
+      background: #f8f8f6;
+      border-radius: 2.4rem;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 1.6rem;
+      align-items: center;
+
+      .img-con {
+        width: 2rem;
+        aspect-ratio: 1/1;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      .details {
+        .title {
+          font-weight: 500;
+          font-size: 1.5rem;
+          line-height: 2.25rem;
+          text-transform: capitalize;
+        }
+
+        p {
+          color: #9b9b9b;
+          font-weight: 500;
+          font-size: 1.3rem;
+          line-height: 1.95rem;
+        }
+      }
+      button {
+        width: 2rem;
+        height: 2rem;
+        font-size: 2rem;
+        color: #9b9b9b;
+        font-weight: 600;
+        background: none;
+      }
+    }
+  }
+}
+
+.nav {
+  position: fixed;
+  bottom: 0rem;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    background-color: grey;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.179), white, #f1f1f1);
+    align-items: flex-end;
+    height: 16rem;
+    padding: 2.8rem;
+    border: none;
+  }
+
+  .icon {
+    width: 4rem;
+    height: 4rem;
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+    border-radius: 1.4rem;
+
+    img {
+      width: 2rem;
+      aspect-ratio: 1/1;
+    }
+
+    &:hover {
+      background-color: #1bd05d;
+      transition: all 0.5s;
+
+      img {
+        mix-blend-mode: color-dodge;
+        filter: brightness(100);
+      }
+    }
+  }
+
+  .plus {
+    width: 5.6rem;
+    aspect-ratio: 1/1;
+    background: #1bd15d;
+    border-radius: 1.8rem;
+    display: grid;
+    cursor: pointer;
+    place-content: center;
+
+    img {
+      display: block;
+    }
+  }
+}
+
+.create-plan-stn {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  translate: -100%;
+  opacity: 0;
+  z-index: -1;
+  transition: all 0.4s;
+  background-color: #fff;
+
+  .back-btn {
+    margin: 2.4rem 0 3.6rem;
+    width: 4.8rem;
+    aspect-ratio: 1/1;
+    display: grid;
+    place-content: center;
+    border-radius: 1.4rem;
+
+    img {
+      display: block;
+      width: 2.4rem;
+    }
+  }
+
+  h1 {
+    font-size: 2.8rem;
+    line-height: 3.8rem;
+    margin-bottom: 1.2rem;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    font-weight: 600;
+    line-height: 3.8rem;
+
+    .submit {
+      margin-top: 1.5rem;
+      font-weight: 500;
+      font-size: 1.7rem;
+      line-height: 3.8rem;
+      padding: 0.9rem;
+      background-color: #1bd15d;
+      color: #fff;
+      border-radius: 1.4rem;
+      width: 100%;
+    }
+  }
+
+  fieldset {
+    legend {
+      font-size: 1.5rem;
+    }
+
+    div {
+      background: #f8f8f6;
+      border-radius: 1.4rem;
+      padding: 1.4rem 1.6rem;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      display: flex;
+      gap: 1.6rem;
+
+      img {
+        width: 2rem;
+        height: 2rem;
+      }
+
+      input {
+        color: #0a0909;
+        font-size: 1.5rem;
+        background: none;
+        border-bottom: 1px solid #9b9b9b57;
+        width: 100%;
+        text-transform: capitalize;
+      }
+    }
+
+    .amount-info {
+      display: flex;
+      justify-content: space-between;
+      gap: 1.6rem;
+
+      div {
+        display: flex;
+        justify-content: space-between;
+
+        input {
+          width: 5rem;
+        }
+
+        span {
+          font-size: 1.3rem;
+        }
+      }
+    }
+
+    .food-info {
+      display: flex;
+      gap: 1.6rem;
+      justify-content: space-between;
+
+      div {
+        width: 9.6rem;
+        height: 9rem;
+        border-radius: 1.4rem;
+        cursor: pointer;
+
+        img {
+          width: 5.7rem;
+          height: 4.8rem;
+        }
+
+        &:hover {
+          background-color: #1bd15d;
+
+          img {
+            mix-blend-mode: color-dodge;
+            filter: brightness(100);
+          }
+        }
+      }
+
+      .selected {
+        background: #1bd15d;
+
+        img {
+          mix-blend-mode: color-dodge;
+          filter: brightness(100);
+        }
+      }
+    }
+  }
+}
+
+.show-plan {
+  translate: 0;
+  opacity: 100;
+  z-index: 99;
+  transition: all 0.4s;
+}
