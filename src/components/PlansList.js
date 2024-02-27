@@ -5,12 +5,25 @@ export default function PlansList({ pillsList }) {
     <section className="plans-list">
       <h4>Daily Review</h4>
 
-      <div className="lists">
-        {pillsList.map((drug) => (
-          <DrugItem drug={drug} key={drug.id} />
-        ))}
-      </div>
+      <Lists pillsList={pillsList} />
     </section>
+  );
+}
+
+function Lists({ pillsList }) {
+  if (!pillsList.length)
+    return (
+      <div className="demo">
+        <p>Start adding some pills so that we can remind you😊</p>
+      </div>
+    );
+
+  return (
+    <div className="lists">
+      {pillsList.map((drug) => (
+        <DrugItem drug={drug} key={drug.id} />
+      ))}
+    </div>
   );
 }
 
@@ -31,7 +44,7 @@ function DrugItem({ drug }) {
             {hour <= 12 ? hour : hour - 12}:00
             {hour >= 12 ? " PM" : " AM"} .
           </span>
-          <span> Completed</span>
+          <span> In progress</span>
         </p>
       </div>
 

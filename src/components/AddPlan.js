@@ -20,15 +20,11 @@ export default function AddPlan({ visible, onShowPlan, onAddPill, pillsList }) {
   const [duration, setDuration] = useState("");
   const [currentPillTime, setCurrentPillTime] = useState(null);
   const [time, setTime] = useState("");
-  // const [morning, setMorning] = useState(true);
 
   function handleSubmit(e) {
     e.preventDefault();
 
     if (!pillName || currentPillTime === null) return;
-
-    // const meridian = Number(time.slice(0, 2));
-    // meridian >= 12 ? setMorning(false) : setMorning(true);
 
     const newPill = {
       id: pillsList.length + 1,
@@ -37,7 +33,6 @@ export default function AddPlan({ visible, onShowPlan, onAddPill, pillsList }) {
       duration,
       pillTime: currentPillTime,
       time,
-      // morning,
     };
 
     onAddPill(newPill);

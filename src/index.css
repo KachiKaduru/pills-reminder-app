@@ -105,11 +105,23 @@ body {
   bottom: 0;
 }
 
+.plans-list {
+  display: grid;
+}
 .plans-list h4 {
-  font-weight: 500;
+  font-weight: 600;
   font-size: 1.7rem;
   line-height: 3.8rem;
   margin: 0 0 1.2rem 0;
+}
+.plans-list .demo {
+  place-self: center;
+  padding: 6rem 3rem;
+}
+.plans-list .demo p {
+  font-weight: 600;
+  text-align: center;
+  font-style: italic;
 }
 .plans-list .lists {
   display: grid;
